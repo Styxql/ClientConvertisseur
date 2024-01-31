@@ -9,7 +9,14 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <Grid>
+    <RelativePanel>
+        <TextBlock HorizontalAlignment="Center">Convertisseur</TextBlock>
+        <!--<TextBlock HorizontalAlignment="Center" VerticalAlignment="Top" Margin="30px 0px 0px 0px"></TextBlock>-->
+        <TextBlock></TextBlock>
+        <ComboBox></ComboBox>
+        <TextBox></TextBox>
+        <TextBox></TextBox>
+        <Button></Button>
 
-    </Grid>
+    </RelativePanel>
 </Page>

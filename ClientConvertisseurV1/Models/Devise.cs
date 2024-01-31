@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace WPSConvertisseur.Models
+namespace ClientConvertisseurV1.Models
 {
     public class Devise
     {
@@ -17,7 +17,7 @@ namespace WPSConvertisseur.Models
 
         public int Id { get; set; }
         private string? nomDevise;
-        [Required]
+        
         public string? NomDevise
         {
             get { return nomDevise; }
@@ -34,9 +34,6 @@ namespace WPSConvertisseur.Models
                    this.Taux == devise.Taux;
         }
 
-        public override int GetHashCode()
-        {
-            return HashCode.Combine(this.Id, this.nomDevise, this.NomDevise, this.Taux);
-        }
+      
     }
 }
