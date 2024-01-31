@@ -10,7 +10,7 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <RelativePanel>
-        <TextBlock HorizontalAlignment="Center">Convertisseur</TextBlock>
+        <TextBlock>Convertisseur</TextBlock>
         <!--<TextBlock HorizontalAlignment="Center" VerticalAlignment="Top" Margin="30px 0px 0px 0px"></TextBlock>-->
         <TextBlock></TextBlock>
         <ComboBox></ComboBox>
