@@ -16,6 +16,7 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.Services.Store;
 
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
@@ -27,13 +28,17 @@ namespace ClientConvertisseurV1.Views
     /// </summary>
     public sealed partial class ConvertisseurEuroPage : Page,INotifyPropertyChanged
     {
+        private ServicesDevise serviceDevise;
         public ConvertisseurEuroPage()
         {
             this.InitializeComponent();
             this.DataContext = this;
             GetDataOnLoadAsync();
+            serviceDevise = new ServicesDevise();
+            
             
         }
+
 
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -48,6 +53,52 @@ namespace ClientConvertisseurV1.Views
                 OnPropertyChanged("Devises");
             }
         }
+
+
+        private Devise deviseSelectionnee;
+
+
+        public Devise DeviseSelectionnee
+
+        {
+            get { return deviseSelectionnee; }
+            set
+            {
+                deviseSelectionnee = value;
+                OnPropertyChanged("DeviseSelectionnee");
+            }
+        }
+
+
+
+        private double montant;
+
+
+        public double Montant
+
+        {
+            get { return montant; }
+            set
+            {
+                montant = value;
+                OnPropertyChanged("Montant");
+            }
+        }
+        private double res;
+
+
+        public double Res
+
+        {
+            get { return res; }
+            set
+            {
+                res = value;
+                OnPropertyChanged("Res");
+            }
+        }
+
+
 
         private async void GetDataOnLoadAsync()
         {
@@ -75,7 +126,9 @@ namespace ClientConvertisseurV1.Views
             }
         }
 
-
-
+        private void btMontantDevise_Click(object sender, RoutedEventArgs e)
+        {
+            Res = serviceDevise.Convertisseur(this.DeviseSelectionnee, this.Montant);
+        }
     }
 }
