@@ -31,10 +31,10 @@ namespace ClientConvertisseurV1.Views
             this.DataContext = this;
             
         }
-        private async void GetDataOnLoadAsync()
-        {
-            WSService service = new WSService("http://localhost:64198/");
-        }
+        //private async void GetDataOnLoadAsync()
+        //{
+        //    WSService service = new WSService("");
+        //}
 
 
     }

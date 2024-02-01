@@ -10,14 +10,14 @@ namespace ClientConvertisseurV1.Services
 {
     internal class WSService : IService
     {
-        private readonly HttpClient httpClient;
+        private readonly HttpClient HttpClient;
 
-        public WSService( HttpClient httpClient)
+        public WSService(string url)
         {
-            httpClient = new HttpClient();
-            httpClient.BaseAddress = new Uri("http://localhost:64198/");
-            httpClient.DefaultRequestHeaders.Accept.Clear();
-            httpClient.DefaultRequestHeaders.Accept.Add(
+            HttpClient = new HttpClient();
+            HttpClient.BaseAddress = new Uri("http://localhost:64198/");
+            HttpClient.DefaultRequestHeaders.Accept.Clear();
+            HttpClient.DefaultRequestHeaders.Accept.Add(
                 new MediaTypeWithQualityHeaderValue("application/json"));
         }
 
@@ -25,7 +25,7 @@ namespace ClientConvertisseurV1.Services
         {
             try
             {
-                return await httpClient.GetFromJsonAsync<List<Devise>>(nomControleur);
+                return await HttpClient.GetFromJsonAsync<List<Devise>>(nomControleur);
             }
             catch (Exception)
             {
