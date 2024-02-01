@@ -102,7 +102,7 @@ namespace ClientConvertisseurV1.Views
 
         private async void GetDataOnLoadAsync()
         {
-            WSService service = new WSService("http://localhost:64198/");
+            WSService service = new WSService("http://localhost:7211/");
             List<Devise> result = await service.GetDevisesAsync("devises");
             if (result == null)
             {
