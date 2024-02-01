@@ -1,4 +1,5 @@
 using ClientConvertisseurV2.ViewsModels;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Controls.Primitives;
@@ -28,7 +29,7 @@ namespace ClientConvertisseurV2.Views
         {
             this.InitializeComponent();
             ConvertisseurEuroViewModel convertisseurEuroViewModel = new ConvertisseurEuroViewModel();
-            DataContext = convertisseurEuroViewModel;
+            DataContext = App.Current.Services.GetService<ConvertisseurEuroViewModel>();
             
         }
 

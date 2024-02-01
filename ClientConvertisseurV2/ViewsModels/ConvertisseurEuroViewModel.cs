@@ -132,7 +132,7 @@ namespace ClientConvertisseurV2.ViewsModels
             }
             else
             {
-                Res = this.deviseSelectionnee.Taux*this.Montant;
+                Res = this.DeviseSelectionnee.Taux*this.Montant;
 
             }
         }

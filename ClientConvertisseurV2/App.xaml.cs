@@ -1,5 +1,6 @@
 ﻿using ClientConvertisseurV2.Views;
 using ClientConvertisseurV2.ViewsModels;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Controls.Primitives;
@@ -33,11 +34,17 @@ namespace ClientConvertisseurV2
         /// executed, and as such is the logical equivalent of main() or WinMain().
         /// </summary>
        public static FrameworkElement MainRoot { get;private set; }
+       public ServiceProvider Services { get; }
         public App()
         {
             this.InitializeComponent();
-        }
 
+
+            ServiceCollection services = new ServiceCollection();
+            services.AddTransient<ConvertisseurEuroViewModel>();
+            Services = services.BuildServiceProvider();
+        }
+        public new static App Current => (App)Application.Current;
         /// <summary>
         /// Invoked when the application is launched.
         /// </summary>
@@ -47,6 +54,7 @@ namespace ClientConvertisseurV2
                 
             m_window = new MainWindow();
 
+           
             Frame rootFrame = new Frame();
             this.m_window.Content = rootFrame;
 
