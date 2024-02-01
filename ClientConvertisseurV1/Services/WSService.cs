@@ -12,7 +12,7 @@ namespace ClientConvertisseurV1.Services
     {
         private readonly HttpClient httpClient;
 
-        public WSService()
+        public WSService( HttpClient httpClient)
         {
             httpClient = new HttpClient();
             httpClient.BaseAddress = new Uri("http://localhost:64198/");

@@ -10,13 +10,18 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <RelativePanel>
-        <TextBlock>Convertisseur</TextBlock>
-        <!--<TextBlock HorizontalAlignment="Center" VerticalAlignment="Top" Margin="30px 0px 0px 0px"></TextBlock>-->
-        <TextBlock></TextBlock>
-        <ComboBox></ComboBox>
-        <TextBox></TextBox>
-        <TextBox></TextBox>
-        <Button></Button>
+        <TextBlock x:Name="title" RelativePanel.AlignHorizontalCenterWithPanel="True" Margin="0,10,0,0">Convertisseur</TextBlock>
 
+        <TextBlock x:Name="tbMontant" RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.Below="title" Margin="0,20,0,0">Montant en Euros</TextBlock>
+
+        <TextBox x:Name="tbxMontantEnEuro" RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.Below="tbMontant" Margin="0,10,0,0"></TextBox>
+
+        <TextBlock x:Name="tbDevise" RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.Below="tbxMontantEnEuro" Margin="0,20,0,0">Devise</TextBlock>
+
+        <ComboBox x:Name="cbDevise" RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.Below="tbDevise" Margin="0,10,0,0"></ComboBox>
+
+        <Button x:Name="btMontantDevise" RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.Below="cbDevise" Margin="0,20,0,0"></Button>
+
+        <TextBox IsReadOnly="True" x:Name="tbxMontantDevise" RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.Below="btMontantDevise" Margin="0,10,0,0"></TextBox>
     </RelativePanel>
 </Page>

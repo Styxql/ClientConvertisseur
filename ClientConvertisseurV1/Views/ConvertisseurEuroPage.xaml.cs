@@ -1,3 +1,4 @@
+using ClientConvertisseurV1.Services;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Controls.Primitives;
@@ -7,6 +8,7 @@ using Microsoft.UI.Xaml.Media;
 using Microsoft.UI.Xaml.Navigation;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -26,6 +28,14 @@ namespace ClientConvertisseurV1.Views
         public ConvertisseurEuroPage()
         {
             this.InitializeComponent();
+            this.DataContext = this;
+            
         }
+        private async void GetDataOnLoadAsync()
+        {
+            WSService service = new WSService("http://localhost:64198/");
+        }
+
+
     }
 }
