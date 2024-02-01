@@ -106,7 +106,7 @@ namespace ClientConvertisseurV1.Views
             List<Devise> result = await service.GetDevisesAsync("devises");
             if (result == null)
             {
-                //MessageAsync("API non disponible", "Erreur");
+                MessageAsync("API non disponible", "Erreur");
             }
             else 
             {
@@ -126,9 +126,42 @@ namespace ClientConvertisseurV1.Views
             }
         }
 
-        private void btMontantDevise_Click(object sender, RoutedEventArgs e)
+        private async void btMontantDevise_Click(object sender, RoutedEventArgs e)
         {
-            Res = serviceDevise.Convertisseur(this.DeviseSelectionnee, this.Montant);
+            if (this.DeviseSelectionnee == null)
+            {
+                ContentDialog noDevise = new ContentDialog
+                {
+                    Title = "Erreur",
+                    Content = "Vous devez selectionner une devise !!!!",
+                    CloseButtonText = "OK"
+                };
+                noDevise.XamlRoot = this.Content.XamlRoot;
+
+                ContentDialogResult result = await noDevise.ShowAsync();
+            }
+            else
+            {
+                Res = serviceDevise.Convertisseur(this.DeviseSelectionnee, this.Montant);
+
+            }
         }
+
+        public async void MessageAsync(string content,string title)
+        {
+            ContentDialog noApi = new ContentDialog
+            {
+                Title = title,
+                Content = content,
+                CloseButtonText = "OK"
+
+            };
+            noApi.XamlRoot = this.Content.XamlRoot;
+
+            ContentDialogResult result = await noApi.ShowAsync();
+
+        }
+
+
     }
 }
