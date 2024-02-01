@@ -15,7 +15,7 @@ namespace ClientConvertisseurV1.Services
         public WSService(string url)
         {
             HttpClient = new HttpClient();
-            HttpClient.BaseAddress = new Uri("http://localhost:64198/");
+            HttpClient.BaseAddress = new Uri("http://localhost:7211/api/");
             HttpClient.DefaultRequestHeaders.Accept.Clear();
             HttpClient.DefaultRequestHeaders.Accept.Add(
                 new MediaTypeWithQualityHeaderValue("application/json"));
