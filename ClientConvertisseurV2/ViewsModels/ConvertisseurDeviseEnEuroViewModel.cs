@@ -1,35 +1,26 @@
-﻿using ClientConvertisseurV2.Services;
-using CommunityToolkit.Mvvm.ComponentModel;
+﻿using CommunityToolkit.Mvvm.ComponentModel;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ClientConvertisseurV2.Models;
+using ClientConvertisseurV2.Services;
 using Microsoft.UI.Xaml.Controls;
-using System.Runtime.CompilerServices;
-using Microsoft.UI.Xaml;
 using CommunityToolkit.Mvvm.Input;
-using ClientConvertisseurV2.Views;
-
-
 namespace ClientConvertisseurV2.ViewsModels
 {
-    public class ConvertisseurEuroViewModel:ObservableObject
+    public class ConvertisseurDeviseEnEuroViewModel:ObservableObject
     {
-        public IRelayCommand BtnSetConversion { get; }
         public IRelayCommand BtnSetOtherConversion { get; }
-        public ConvertisseurEuroViewModel()
+
+        public ConvertisseurDeviseEnEuroViewModel()
         {
             this.GetDataOnLoadAsync();
-            BtnSetConversion = new RelayCommand(ActionSetConversion);
-            //BtnSetOtherConversion = new RelayCommand(ActionSetOtherConversion);
+            BtnSetOtherConversion = new RelayCommand(ActionSetOtherConversion);
+
         }
-       
-
-
         private ObservableCollection<Devise> devises;
 
         public ObservableCollection<Devise> Devises
@@ -119,7 +110,9 @@ namespace ClientConvertisseurV2.ViewsModels
             ContentDialogResult result = await noApi.ShowAsync();
 
         }
-        public async void ActionSetConversion()
+
+
+        public async void ActionSetOtherConversion()
         {
             if (this.DeviseSelectionnee == null)
             {
@@ -135,20 +128,9 @@ namespace ClientConvertisseurV2.ViewsModels
             }
             else
             {
-                Res = this.DeviseSelectionnee.Taux*this.Montant;
+                Res = this.Montant/DeviseSelectionnee.Taux;
 
             }
         }
-        //public  void ActionSetOtherConversion()
-        //{
-        //    _navigationService.Navigate(typeof(ConvertisseurDeviseEnEuro));
-        //}
-
-
-
-
-
-
-
     }
 }

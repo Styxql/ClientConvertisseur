@@ -42,6 +42,7 @@ namespace ClientConvertisseurV2
 
             ServiceCollection services = new ServiceCollection();
             services.AddTransient<ConvertisseurEuroViewModel>();
+            services.AddTransient<ConvertisseurDeviseEnEuroViewModel>();
             Services = services.BuildServiceProvider();
         }
         public new static App Current => (App)Application.Current;
@@ -59,7 +60,7 @@ namespace ClientConvertisseurV2
             this.m_window.Content = rootFrame;
 
             m_window.Activate();
-            rootFrame.Navigate(typeof(ConvertisseurEuroPage));
+            rootFrame.Navigate(typeof(ConvertisseurDeviseEnEuro));
             MainRoot = m_window.Content as FrameworkElement;
 
         }

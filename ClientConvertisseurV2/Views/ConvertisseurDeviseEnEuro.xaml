@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Page
-    x:Class="ClientConvertisseurV2.Views.ConvertisseurEuroPage"
+    x:Class="ClientConvertisseurV2.Views.ConvertisseurDeviseEnEuro"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:ClientConvertisseurV2.Views"
@@ -10,9 +10,9 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <RelativePanel>
-        <TextBlock x:Name="title" RelativePanel.AlignHorizontalCenterWithPanel="True" Margin="0,10,0,0">Convertisseur</TextBlock>
+        <TextBlock x:Name="title" RelativePanel.AlignHorizontalCenterWithPanel="True" Margin="0,10,0,0">Convertisseur en Euro</TextBlock>
 
-        <TextBlock x:Name="tbMontant" RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.Below="title" Margin="0,20,0,0">Montant en Euros</TextBlock>
+        <TextBlock x:Name="tbMontant" RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.Below="title" Margin="0,20,0,0">Montant</TextBlock>
 
         <TextBox x:Name="tbxMontantEnEuro" RelativePanel.AlignHorizontalCenterWithPanel="True" Text="{Binding Montant, Mode=TwoWay}" RelativePanel.Below="tbMontant" Margin="0,10,0,0"></TextBox>
 
@@ -20,10 +20,9 @@
 
         <ComboBox x:Name="cbDevise" ItemsSource="{Binding Devises, Mode=TwoWay}" DisplayMemberPath="NomDevise" RelativePanel.AlignHorizontalCenterWithPanel="True" Width="70" RelativePanel.Below="tbDevise" Margin="0,10,0,0" SelectedItem="{Binding DeviseSelectionnee, Mode=TwoWay}"></ComboBox>
 
-        <Button x:Name="btMontantDevise"  RelativePanel.AlignHorizontalCenterWithPanel="True" Width="100" Height="30" RelativePanel.Below="cbDevise" Margin="0,20,0,0" Content="Convertir" Command="{Binding BtnSetConversion}"></Button>
+        <Button x:Name="btMontantDevise"  RelativePanel.AlignHorizontalCenterWithPanel="True" Width="150" Height="30" RelativePanel.Below="cbDevise" Margin="0,20,0,0" Content="Convertir en Euro" Command="{Binding BtnSetOtherConversion}"></Button>
 
         <TextBox IsReadOnly="True" x:Name="tbxMontantDevise" RelativePanel.AlignHorizontalCenterWithPanel="True" Text="{Binding Res, Mode=TwoWay}" RelativePanel.Below="btMontantDevise" Margin="0,10,0,0"></TextBox>
 
-        <Button x:Name="btDeviseToEuro" RelativePanel.Below="tbxMontantDevise" RelativePanel.AlignHorizontalCenterWithPanel="True" Margin="30" Width="150" Height="30" Command="{Binding BtnSetOtherConversion}">Convertir en Euro</Button>
     </RelativePanel>
 </Page>
