@@ -85,7 +85,7 @@ namespace ClientConvertisseurV2.ViewsModels
 
 
 
-        private async void GetDataOnLoadAsync()
+        public async void GetDataOnLoadAsync()
         {
             WSService service = new WSService("http://localhost:7211/");
             List<Devise> result = await service.GetDevisesAsync("devises");
@@ -116,7 +116,7 @@ namespace ClientConvertisseurV2.ViewsModels
             ContentDialogResult result = await noApi.ShowAsync();
 
         }
-        private async void ActionSetConversion()
+        public async void ActionSetConversion()
         {
             if (this.DeviseSelectionnee == null)
             {
